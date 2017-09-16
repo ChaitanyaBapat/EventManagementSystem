@@ -4,7 +4,7 @@
 	<title>Event Management System</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- CSS File -->
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -54,12 +54,12 @@
 		<div class="header">
 			<!-- Open nav bar btn -->
 			<div class="header-hamburger">
-				<a href="#/" class="open-side-navigation-bar"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="open-side-navigation-bar"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
 				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="open-side-navigation-bar-mobile"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<a href="#/" class="close-side-navigation-bar"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="open-side-navigation-bar-mobile"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="close-side-navigation-bar"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
 				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="close-side-navigation-bar-mobile"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="close-side-navigation-bar-mobile"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
 			</div>
 			<!-- Website Title -->
 			<div class="header-website-title">
@@ -110,98 +110,117 @@
 		</div>
 
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- Body Content -->
 	<div class="rest-of-the-body"> 
 		<!-- insert Body here -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		<div>
+			<form method="POST" action="../auth/new_user.php">
+				<!-- Table inside the form tag -->
+				<!-- This form contains the following info
+				* Roll No
+				* Password
+				*Confirm password
+				* First Name
+				* Middle Name
+				* Last Name
+				* Year (FE,SE,TE,BE)
+				* Division
+				* Batch
+				* Email
+				* Mobile Number -->
+				<table>
+					<tr>
+						<td>Username (Your Roll Number) : </td>
+						<td><input type="text" name="username"></td>
+					</tr>
+					<tr>
+						<td>Password : </td>
+						<td><input type="password" name="password"></td>
+					</tr>
+					<tr>
+						<td>Confirm Password : </td>
+						<td><input type="password" name="confirm_password"></td>
+					</tr>
+					<tr>
+						<td>First Name : </td>
+						<td><input type="text" name="first_name"></td>
+					</tr>
+					<tr>
+						<td>Middle Name : </td>
+						<td><input type="text" name="middle_name"></td>
+					</tr>
+					<tr>
+						<td>Last Name : </td>
+						<td><input type="text" name="last_name"></td>
+					</tr>
+					<tr>
+						<td>Year  : </td>
+						<td>
+							<input type="radio" name="year" value="fe">First Year<br>
+							<input type="radio" name="year" value="se">Second Year<br>
+							<input type="radio" name="year" value="te">Third Year<br>
+							<input type="radio" name="year" value="be">Fourth Year
+						</td>
+					</tr>
+					<tr>
+						<td>Division : </td>
+						<td><input type="text" name="division"></td>
+					</tr>
+					<tr>
+						<td>Batch  : </td>
+						<td>
+							<input type="radio" name="batch" value="one">1<br>
+							<input type="radio" name="batch" value="two">2<br>
+							<input type="radio" name="batch" value="three">3
+						</td>
+					</tr>
+					<tr>
+						<td>Email : </td>
+						<td><input type="email" name="email"></td>
+					</tr>
+					<tr>
+						<td>Mobile Number : </td>
+						<td><input type="text" name="mobile"></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" name="submit" value="Login"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
 	</div>
 </body>	

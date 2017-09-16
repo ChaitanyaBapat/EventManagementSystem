@@ -41,6 +41,26 @@
 	text-align: left;
 	padding-left: 10px;
 }
+.close-side-navigation-bar {
+	display: none;
+	width: 15%;
+	height: 100%;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 18px;
+	text-align: left;
+	padding-left: 10px;
+}
+.close-side-navigation-bar-mobile {
+	display: none;
+	width: 15%;
+	height: 100%;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 18px;
+	text-align: left;
+	padding-left: 10px;
+}
 .header-website-title {
 	display: inline-block;
 	height: 100%;
@@ -82,24 +102,15 @@
 	height: 100%;
 	width: 0px;
 	position: fixed;
-	top: 0px;
 	left: 0px;
 	z-index: 100;
 	overflow-x: hidden;
-	background-color: #2F2F2F;
+	background-color: #EEEEEE;
 	transition: .2s;
+	box-shadow: 5px 0px 10px #999999;
 }
-.side-navigation-bar-close {
-	display: table;
-	text-align: center;
-	width: 100%;
-}
-.side-navigation-bar-content-close-a {
-	display: table-cell;
-	text-decoration: none;
-	font-size: 18px;
-	vertical-align: middle;
-	color: #FFFFFF;
+.side-navigation-bar-content-top {
+	padding-top: 20px;
 }
 .side-navigation-bar-content {
 	display: block;
@@ -111,11 +122,125 @@
 .side-navigation-bar-content-a {
 	font-size: 18px;
 	text-decoration:none;
-	color: #FFFFFF;
+	color: #000000;
 }
 .rest-of-the-body {
 	transition: .2s;
+	margin-left:10px;
+	margin-top: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-resolution:420dpi) and (max-device-width:720px)   {
 	.header {
 		position: sticky;
@@ -125,7 +250,7 @@
 		width: 100%;
 		height: 5%;
 		overflow: hidden;
-		z-index: 50;
+		z-index: 100;
 		background-color:#00695C;
 		color: #FFFFFF;
 	}
@@ -194,19 +319,15 @@
 		height: 100%;
 		width: 0px;
 		position: fixed;
-		top: 0px;
 		left: 0px;
 		z-index: 100;
 		overflow-x: hidden;
-		background-color: #212121;
-		transition:0s;
+		background-color: #EEEEEE;
+		transition: 0s;
+		box-shadow: 5px 0px 10px #999999;
 	}
-	.side-navigation-bar-close {
-		padding-top: 50px;
-		padding-bottom: 50px;
-		display: table;
-		text-align: center;
-		width: 100%;
+	.side-navigation-bar-content-top {
+		padding-top: 20px;
 	}
 	.side-navigation-bar-content {
 		display: block;
@@ -216,9 +337,9 @@
 		padding-bottom: 10px;
 	}
 	.side-navigation-bar-content-a {
-		font-size: 22px;
+		font-size: 18px;
 		text-decoration:none;
-		color: #FFFFFF;
+		color: #000000;
 	}
 	.rest-of-the-body {
 		transition: 0s;
