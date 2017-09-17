@@ -129,8 +129,32 @@
 	margin-left:10px;
 	margin-top: 10px;
 }
-
-
+.registration-form {
+	
+}	
+.registration-form-table {
+	font-size: 18px;
+}
+.registration-form-table-row {
+	
+}
+.registration-form-table-row-data {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 20px;
+}
+.registration-form-table-row-data-input {
+	font-size: 18px;
+	margin-top: 5px;
+	outline: 0;
+}
+.error-message {
+}
+.registration-form-table-row-data-input:focus {
+	border: 1px solid blue;
+	box-shadow: 0px 0px 5px #81D4FA;
+	outline: none;
+}
 
 
 
