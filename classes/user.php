@@ -42,6 +42,48 @@
 			return (intval($string,10));
 		}
 
+		public function check_requirements () {
+			if($this->check_empty()) return False;
+			if(strlen($this->username) !== 8) return False;
+			if(!$this->check_alphanumeric($this->username)) return False;
+			if(strlen($this->password) < 8) return False;
+			if(!$this->check_alphabets($this->first_name)) return False;
+			if(!$this->check_alphabets($this->middle_name)) return False;
+			if(!$this->check_alphabets($this->last_name)) return False;
+			if(!$this->check_alphabets($this->year)) return False;
+			if(!$this->check_alphabets($this->division)) return False;
+			if(!$this->check_email($this->email)) return False;
+			return True;
+		}
+
+		private function check_empty() {
+			if(empty($this->username ) || empty($this->password ) ||  empty($this->first_name ) || empty($this->middle_name ) || empty($this->last_name ) || empty($this->year ) || empty($this->division ) || empty($this->batch ) || empty($this->email ) || empty($this->mobile )) {
+				$_SESSION['register_empty_input'] = True;
+				return True;
+			}
+		}
+
+		private function check_alphanumeric ($string) {
+			if (!preg_match("/^[a-zA-Z0-9]+/",$string)) {
+				$_SESSION['register_username_error'] = True;
+	      		return False;
+	    	}
+		}
+
+		private function check_alphabets ($string) {
+			if (!preg_match("/^[a-zA-Z]+/",$string)) {
+				$_SESSION['register_alphabets_error'] = True;
+	      		return False;
+	    	}
+		}
+
+		private function check_email ($string) {
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				$_SESSION['register_email_error'] = True;
+	      		return False;
+	    	}
+		}
+
 		public function insert_user_into_database () {
 			$select = "SELECT ROLL_NO FROM USER WHERE ROLL_NO = '$this->username'";
 			$result = $this->connection_variable->query($select);

@@ -9,7 +9,7 @@
 	<title>Event Management System</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- CSS File -->
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -127,8 +127,7 @@
 	</div>
 	<!-- Body Content -->
 	<div class="rest-of-the-body"> 
-		<!-- insert Body here --> 
-
+		<!-- insert Body here -->
 		<?php
 			if (!isset($_SESSION)) {
 				session_start();
@@ -140,6 +139,12 @@
 			require '../classes/user.php';
 			if($_SESSION['database_connection'] === 'connected') {
 				if($_SERVER['REQUEST_METHOD'] == 'POST') {
+					if(empty($_POST['username'] ) || empty($_POST['password'] ) || empty($_POST['confirm_password'] ) || empty($_POST['first_name'] ) || empty($_POST['middle_name'] ) || empty($_POST['last_name'] ) || empty($_POST['year'] ) || empty($_POST['division'] ) || empty($_POST['batch'] ) || empty($_POST['email'] ) || empty($_POST['mobile'] )) {
+					$_SESSION['register_empty_input'] = True;
+					echo '</div></body>';
+					echo '<a href="../register/register.php">Empty Input Error. Click Here</a>';
+					exit();
+			}
 					$my_user = new user(
 						$_POST['username'],
 						$_POST['password'],
@@ -153,8 +158,13 @@
 						$_POST['mobile'],
 						$connection_variable
 					);
-					$error_string = $my_user->insert_user_into_database();
-					echo "<br>".$error_string."<br>";
+					if($my_user->check_requirements()) {
+						$error_string = $my_user->insert_user_into_database();
+						echo "<br>".$error_string."<br>";
+					}
+					else {
+						echo '<a href="../register/register.php">Error. Click Here</a>';
+					}
 				}
 			}
 		?>
