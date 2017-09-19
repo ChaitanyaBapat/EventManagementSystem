@@ -1,3 +1,4 @@
+/*Basic template Starts Here*/
 .container {
 	padding: 0px;
 	margin: 0px;
@@ -124,147 +125,17 @@
 	text-decoration:none;
 	color: #000000;
 }
+/*Basic Template Ends Here*/
+/*Container for the rest of the body*/
 .rest-of-the-body {
 	transition: .2s;
 	margin-left:10px;
 	margin-top: 10px;
 }
-.registration-form {
-	
-}	
-.registration-form-table {
-	font-size: 18px;
-}
-.registration-form-table-row {
-	
-}
-.registration-form-table-row-data {
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 20px;
-}
-.registration-form-table-row-data-input {
-	font-size: 18px;
-	margin-top: 5px;
-	outline: 0;
-}
-.error-message {
-}
-.registration-form-table-row-data-input:focus {
-	border: 1px solid blue;
-	box-shadow: 0px 0px 5px #81D4FA;
-	outline: none;
-}
+/*Insert page relevant css code here*/
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*Till here*/
 @media screen and (max-resolution:420dpi) and (max-device-width:720px)   {
 	.header {
 		position: sticky;
@@ -307,7 +178,6 @@
 		padding-top: 18px;
 		padding-bottom: 18px;
 		text-align: left;
-
 		font-family: 'Pacifico', cursive;
 		font-size: 28px;
 	}
