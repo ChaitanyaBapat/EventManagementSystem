@@ -68,13 +68,12 @@
 			</div>
 			<!-- Website Title -->
 			<div class="header-website-title">
-				<a href="../index.php" id="website">Event Management System</a>
+				<a href="index.php" id="website">Event Management System</a>
 			</div>
 			<!-- Title Menu -->
 			<div class="title-menu-container">
 				<div class="title-menu">
 					<div class="title-menu-item"><a href="../contact/contact.php" class="title-menu-item-a">Contact Us</a></div>
-					<div class="title-menu-item"><a href="../register/register.php" class="title-menu-item-a">Register</a></div>
 					<?php
 						if (!isset($_SESSION)) {
 							session_start();
@@ -84,6 +83,7 @@
 						}
 						else {
 							echo '<div class="title-menu-item"><a href="../login/login.php" class="title-menu-item-a">Login</a></div>';
+							echo '<div class="title-menu-item"><a href="../register/register.php" class="title-menu-item-a">Register</a></div>';
 						}
 					?>
 				</div>
@@ -128,93 +128,11 @@
 	<!-- Body Content -->
 	<div class="rest-of-the-body"> 
 		<!-- insert Body here --> 
-		<?php
-			if (!isset($_SESSION)) {
-				session_start();
-			}
-			if(isset($_SESSION['login'])) {
-				echo 'Please log out of your existing account to register a new account.';
-			}
-			else {
-				echo '<div>
-				<form method="POST" action="../auth/new_user.php">
-					<!-- Table inside the form tag -->
-					<!-- This form contains the following info
-					* Roll No
-					* Password
-					*Confirm password
-					* First Name
-					* Middle Name
-					* Last Name
-					* Year (FE,SE,TE,BE)
-					* Division
-					* Batch
-					* Email
-					* Mobile Number -->
-					<table>
-						<tr>
-							<td>Username (Your Roll Number) : </td>
-							<td><input type="text" name="username"></td>
-						</tr>
-						<tr>
-							<td>Password : </td>
-							<td><input type="password" name="password"></td>
-						</tr>
-						<tr>
-							<td>Confirm Password : </td>
-							<td><input type="password" name="confirm_password"></td>
-						</tr>
-						<tr>
-							<td>First Name : </td>
-							<td><input type="text" name="first_name"></td>
-						</tr>
-						<tr>
-							<td>Middle Name : </td>
-							<td><input type="text" name="middle_name"></td>
-						</tr>
-						<tr>
-							<td>Last Name : </td>
-							<td><input type="text" name="last_name"></td>
-						</tr>
-						<tr>
-							<td>Year  : </td>
-							<td>
-								<input type="radio" name="year" value="fe">First Year<br>
-								<input type="radio" name="year" value="se">Second Year<br>
-								<input type="radio" name="year" value="te">Third Year<br>
-								<input type="radio" name="year" value="be">Fourth Year
-							</td>
-						</tr>
-						<tr>
-							<td>Division : </td>
-							<td><input type="text" name="division"></td>
-						</tr>
-						<tr>
-							<td>Batch  : </td>
-							<td>
-								<input type="radio" name="batch" value="one">1<br>
-								<input type="radio" name="batch" value="two">2<br>
-								<input type="radio" name="batch" value="three">3
-							</td>
-						</tr>
-						<tr>
-							<td>Email : </td>
-							<td><input type="email" name="email"></td>
-						</tr>
-						<tr>
-							<td>Mobile Number : </td>
-							<td><input type="text" name="mobile"></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><input type="submit" name="submit" value="Login"></td>
-						</tr>
-					</table>
-				</form>
-		
-			</div>';
-			}
-		?>
+
+		<div>
+			<div>DUMMMY CONTACT INFO</div>
+		</div>
+
 
 	</div>
 </body>	

@@ -1,3 +1,8 @@
+<?php
+	if (!isset($_SESSION)) {
+		session_start();
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,14 +68,24 @@
 			</div>
 			<!-- Website Title -->
 			<div class="header-website-title">
-				<span>Event Management System</span>
+				<a href="index.php" id="website">Event Management System</a>
 			</div>
 			<!-- Title Menu -->
 			<div class="title-menu-container">
 				<div class="title-menu">
-					<div class="title-menu-item"><a href="#/" class="title-menu-item-a">Contact Us</a></div>
-					<div class="title-menu-item"><a href="#/" class="title-menu-item-a">Login</a></div>
-					<div class="title-menu-item"><a href="register/register.php" class="title-menu-item-a">Register</a></div>
+					<div class="title-menu-item"><a href="contact/contact.php" class="title-menu-item-a">Contact Us</a></div>
+					<?php
+						if (!isset($_SESSION)) {
+							session_start();
+						}
+						if (isset($_SESSION['login'])) {
+							echo '<div class="title-menu-item"><a href="logout/logout.php" class="title-menu-item-a">Logout</a></div>';
+						}
+						else {
+							echo '<div class="title-menu-item"><a href="login/login.php" class="title-menu-item-a">Login</a></div>';
+							echo '<div class="title-menu-item"><a href="register/register.php" class="title-menu-item-a">Register</a></div>';
+						}
+					?>
 				</div>
 			</div>
 		</div>

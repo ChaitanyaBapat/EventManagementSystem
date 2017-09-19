@@ -23,6 +23,10 @@
 	align-content: center;
 	width:15%;
 }
+#website {
+	text-decoration: none;
+	color: #FFFFFF;
+}
 .open-side-navigation-bar {
 	display: inline-block;
 	width: 15%;
