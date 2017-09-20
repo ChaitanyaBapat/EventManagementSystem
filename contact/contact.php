@@ -68,7 +68,7 @@
 			</div>
 			<!-- Website Title -->
 			<div class="header-website-title">
-				<a href="index.php" id="website">Event Management System</a>
+				<a href="../index.php" id="website">Event Management System</a>
 			</div>
 			<!-- Title Menu -->
 			<div class="title-menu-container">

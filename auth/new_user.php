@@ -59,12 +59,12 @@
 		<div class="header">
 			<!-- Open nav bar btn -->
 			<div class="header-hamburger">
-				<a href="#/" class="open-side-navigation-bar"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="open-side-navigation-bar"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
 				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="open-side-navigation-bar-mobile"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<a href="#/" class="close-side-navigation-bar"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="open-side-navigation-bar-mobile"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="close-side-navigation-bar"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
 				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="close-side-navigation-bar-mobile"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
+				<a href="#/" class="close-side-navigation-bar-mobile"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
 			</div>
 			<!-- Website Title -->
 			<div class="header-website-title">
@@ -80,10 +80,10 @@
 							session_start();
 						}
 						if (isset($_SESSION['login'])) {
-							echo '<div class="title-menu-item"><a href="logout/logout.php" class="title-menu-item-a">Logout</a></div>';
+							echo '<div class="title-menu-item"><a href="../logout/logout.php" class="title-menu-item-a">Logout</a></div>';
 						}
 						else {
-							echo '<div class="title-menu-item"><a href="login/login.php" class="title-menu-item-a">Login</a></div>';
+							echo '<div class="title-menu-item"><a href="../login/login.php" class="title-menu-item-a">Login</a></div>';
 						}
 					?>
 				</div>
@@ -136,6 +136,7 @@
 				echo "Logout of your existing account to register a new account.";
 			}
 			require 'connection.php';
+			$connection_variable = connect_to_the_database();
 			require '../classes/user.php';
 			if($_SESSION['database_connection'] === 'connected') {
 				$my_user = new user(

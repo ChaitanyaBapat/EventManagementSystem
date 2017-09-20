@@ -179,10 +179,10 @@
 						<tr>
 							<td>Year  : </td>
 							<td>
-								<input type="radio" name="year" value="fe" required>First Year<br>
-								<input type="radio" name="year" value="se" required>Second Year<br>
-								<input type="radio" name="year" value="te" required>Third Year<br>
-								<input type="radio" name="year" value="be" required>Fourth Year
+								<input type="radio" name="year" value="FE" required>First Year<br>
+								<input type="radio" name="year" value="SE" required>Second Year<br>
+								<input type="radio" name="year" value="TE" required>Third Year<br>
+								<input type="radio" name="year" value="BE" required>Fourth Year
 							</td>
 						</tr>
 						<tr>
