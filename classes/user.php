@@ -18,6 +18,7 @@
 		var $email;
 		var $mobile;
 		var $connection_variable;
+		var $error_string;
 		function __construct ($username, $password, $first_name, $middle_name, $last_name, $year, $division, $batch, $email, $mobile, $connection_variable ) {
 
 			$this->connection_variable = $connection_variable;
@@ -31,7 +32,7 @@
 			$this->batch = $this->sanitize_regular($batch);
 			$this->email = $this->sanitize_regular($email);
 			$this->mobile = $this->sanitize_regular($mobile);
-			$this->mobile = $this->sanitize_number($this->mobile);
+			$this->mobile = $this->sanitize_regular($this->mobile);
 		}
 
 		private function sanitize_regular ($string) {
@@ -43,44 +44,84 @@
 		}
 
 		public function check_requirements () {
-			if($this->check_empty()) return False;
-			if(strlen($this->username) !== 8) return False;
-			if(!$this->check_alphanumeric($this->username)) return False;
-			if(strlen($this->password) < 8) return False;
-			if(!$this->check_alphabets($this->first_name)) return False;
-			if(!$this->check_alphabets($this->middle_name)) return False;
-			if(!$this->check_alphabets($this->last_name)) return False;
-			if(!$this->check_alphabets($this->year)) return False;
-			if(!$this->check_alphabets($this->division)) return False;
-			if(!$this->check_email($this->email)) return False;
-			return True;
+			if($this->check_empty()) return 1;
+			if(strlen($this->username) !== 8) return 2;
+			if(!$this->check_alphanumeric($this->username)) return 3;
+			if(strlen($this->password) < 8) return 4;
+			if(!$this->check_alphabets($this->first_name)) return 5;
+			if(!$this->check_alphabets($this->middle_name)) return 6;
+			if(!$this->check_alphabets($this->last_name)) return 7;
+			if(!$this->check_alphabets($this->year)) return 8;
+			if(!$this->check_alphabets($this->division)) return 9;
+			if(!$this->check_email($this->email)) return 10;
+			return 0;
 		}
 
 		private function check_empty() {
-			if(empty($this->username ) || empty($this->password ) ||  empty($this->first_name ) || empty($this->middle_name ) || empty($this->last_name ) || empty($this->year ) || empty($this->division ) || empty($this->batch ) || empty($this->email ) || empty($this->mobile )) {
-				$_SESSION['register_empty_input'] = True;
+			if(empty($this->username)) {
+				$this->error_string = "username field cannot be left empty";
+				return True;
+			}
+			if(empty($this->password)) {
+				$this->error_string = "password field cannot be left empty";
+				return True;
+			}
+			if(empty($this->first_name)) {
+				$this->error_string = "first_name field cannot be left empty";
+				return True;
+			}
+			if(empty($this->middle_name)) {
+				$this->error_string = "middle_name field cannot be left empty";
+				return True;
+			}
+			if(empty($this->last_name)) {
+				$this->error_string = "last_name field cannot be left empty";
+				return True;
+			}
+			if(empty($this->year)) {
+				$this->error_string = "year field cannot be left empty";
+				return True;
+			}
+			if(empty($this->division)) {
+				$this->error_string = "division field cannot be left empty";
+				return True;
+			}
+			if(empty($this->batch)) {
+				$this->error_string = "batch field cannot be left empty";
+				return True;
+			}
+			if(empty($this->email)) {
+				$this->error_string = "email field cannot be left empty";
+				return True;
+			}
+			if(empty($this->mobile)) {
+				$this->error_string = "mobile field cannot be left empty";
 				return True;
 			}
 		}
 
 		private function check_alphanumeric ($string) {
-			if (!preg_match("/^[a-zA-Z0-9]+/",$string)) {
-				$_SESSION['register_username_error'] = True;
-	      		return False;
+			if (preg_match("/^[a-zA-Z0-9]+/",$string)) {
+	      		return True;
+	    	} else {
+	    		return False;
 	    	}
 		}
 
 		private function check_alphabets ($string) {
-			if (!preg_match("/^[a-zA-Z]+/",$string)) {
-				$_SESSION['register_alphabets_error'] = True;
-	      		return False;
+			if (ctype_alpha($string)) {
+	      		return True;
+	    	} else {
+	    		return False;
 	    	}
 		}
 
 		private function check_email ($string) {
-			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-				$_SESSION['register_email_error'] = True;
-	      		return False;
+			if (filter_var($string, FILTER_VALIDATE_EMAIL)) {
+	      		return True;
+	    	}
+	    	else {
+	    		return False;
 	    	}
 		}
 

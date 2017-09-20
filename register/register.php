@@ -154,60 +154,60 @@
 					<table>
 						<tr>
 							<td>Username (Your Roll Number) : </td>
-							<td><input type="text" name="username"></td>
+							<td><input type="text" name="username" required></td>
 						</tr>
 						<tr>
-							<td>Password : </td>
-							<td><input type="password" name="password"></td>
+							<td>Password :<br> (Minimum 8 characters long)</td>
+							<td><input type="password" name="password" minlength="8" required></td>
 						</tr>
 						<tr>
 							<td>Confirm Password : </td>
-							<td><input type="password" name="confirm_password"></td>
+							<td><input type="password" name="confirm_password" minlength="8" required></td>
 						</tr>
 						<tr>
 							<td>First Name : </td>
-							<td><input type="text" name="first_name"></td>
+							<td><input type="text" name="first_name" required></td>
 						</tr>
 						<tr>
 							<td>Middle Name : </td>
-							<td><input type="text" name="middle_name"></td>
+							<td><input type="text" name="middle_name" required></td>
 						</tr>
 						<tr>
 							<td>Last Name : </td>
-							<td><input type="text" name="last_name"></td>
+							<td><input type="text" name="last_name" required></td>
 						</tr>
 						<tr>
 							<td>Year  : </td>
 							<td>
-								<input type="radio" name="year" value="fe">First Year<br>
-								<input type="radio" name="year" value="se">Second Year<br>
-								<input type="radio" name="year" value="te">Third Year<br>
-								<input type="radio" name="year" value="be">Fourth Year
+								<input type="radio" name="year" value="fe" required>First Year<br>
+								<input type="radio" name="year" value="se" required>Second Year<br>
+								<input type="radio" name="year" value="te" required>Third Year<br>
+								<input type="radio" name="year" value="be" required>Fourth Year
 							</td>
 						</tr>
 						<tr>
 							<td>Division : </td>
-							<td><input type="text" name="division"></td>
+							<td><input type="text" name="division" required></td>
 						</tr>
 						<tr>
 							<td>Batch  : </td>
 							<td>
-								<input type="radio" name="batch" value="one">1<br>
-								<input type="radio" name="batch" value="two">2<br>
-								<input type="radio" name="batch" value="three">3
+								<input type="radio" name="batch" value="one" required>1<br>
+								<input type="radio" name="batch" value="two" required>2<br>
+								<input type="radio" name="batch" value="three" required>3
 							</td>
 						</tr>
 						<tr>
 							<td>Email : </td>
-							<td><input type="email" name="email"></td>
+							<td><input type="email" name="email" required></td>
 						</tr>
 						<tr>
 							<td>Mobile Number : </td>
-							<td><input type="text" name="mobile"></td>
+							<td><input type="text" name="mobile" required></td>
 						</tr>
 						<tr>
 							<td></td>
-							<td><input type="submit" name="submit" value="Login"></td>
+							<td><input type="submit" name="submit" value="Login" required></td>
 						</tr>
 					</table>
 				</form>
