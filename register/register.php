@@ -74,16 +74,16 @@
 			<div class="title-menu-container">
 				<div class="title-menu">
 					<div class="title-menu-item"><a href="../contact/contact.php" class="title-menu-item-a">Contact Us</a></div>
-					<div class="title-menu-item"><a href="../register/register.php" class="title-menu-item-a">Register</a></div>
 					<?php
 						if (!isset($_SESSION)) {
 							session_start();
 						}
-						if (isset($_SESSION['login'])) {
+						if (isset($_SESSION['login']) || isset($_SESSION['login_admin'])) {
 							echo '<div class="title-menu-item"><a href="../logout/logout.php" class="title-menu-item-a">Logout</a></div>';
 						}
 						else {
 							echo '<div class="title-menu-item"><a href="../login/login.php" class="title-menu-item-a">Login</a></div>';
+							echo '<div class="title-menu-item"><a href="../register/register.php" class="title-menu-item-a">Register</a></div>';
 						}
 					?>
 				</div>

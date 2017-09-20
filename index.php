@@ -78,7 +78,7 @@
 						if (!isset($_SESSION)) {
 							session_start();
 						}
-						if (isset($_SESSION['login'])) {
+						if (isset($_SESSION['login']) || isset($_SESSION['login_admin'])) {
 							echo '<div class="title-menu-item"><a href="logout/logout.php" class="title-menu-item-a">Logout</a></div>';
 						}
 						else {

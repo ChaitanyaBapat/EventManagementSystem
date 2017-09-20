@@ -103,7 +103,8 @@
 		private function check_alphanumeric ($string) {
 			if (preg_match("/^[a-zA-Z0-9]+/",$string)) {
 	      		return True;
-	    	} else {
+	    	} 
+	    	else {
 	    		return False;
 	    	}
 		}
@@ -111,7 +112,8 @@
 		private function check_alphabets ($string) {
 			if (ctype_alpha($string)) {
 	      		return True;
-	    	} else {
+	    	} 
+	    	else {
 	    		return False;
 	    	}
 		}

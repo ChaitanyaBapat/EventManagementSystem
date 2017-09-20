@@ -73,7 +73,7 @@
 						if (!isset($_SESSION)) {
 							session_start();
 						}
-						if (isset($_SESSION['login']) || isset($_SESSION['login_admin'])) {
+						if (isset($_SESSION['login'])) {
 							echo '<div class="title-menu-item"><a href="../logout/logout.php" class="title-menu-item-a">Logout</a></div>';
 						}
 						else {
@@ -125,7 +125,7 @@
 		<!-- insert Body here --> 
 
 		<div>
-			<form method="POST" action="../auth/authenticate.php">
+			<form method="POST" action="../auth/authenticate_admin.php">
 				<table>
 					<tr>
 						<td>Username (Your Roll Number) : </td>
@@ -139,9 +139,9 @@
 						if (!isset($_SESSION)) {
 							session_start();
 						}
-						if(isset($_SESSION['wrong_login_info'])) {
+						if(isset($_SESSION['wrong_login_info_admin'])) {
 							echo '<tr>Either the username or the password is incorrect</td></tr>';
-							unset($_SESSION['wrong_login_info']);
+							unset($_SESSION['wrong_login_info_admin']);
 						}
 					?>
 					<tr>
