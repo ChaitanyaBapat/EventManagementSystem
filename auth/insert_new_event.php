@@ -25,7 +25,7 @@
 
 		//If the database connection is successful,
 
-		if(isset($_SESSION['database_connection']) && $_SESSION['databse_connection']) {
+		if(isset($_SESSION['database_connection']) && $_SESSION['database_connection']) {
 			
 			$evtname = mysqli_real_escape_string($connection_variable,$_POST['evtname']);
 			$s_date = mysqli_real_escape_string($connection_variable,$_POST['s_date']);

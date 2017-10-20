@@ -54,6 +54,8 @@
 			//change dis sjhit
 			echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="../logout/logout.php">Logout As Admin</a>';
 
+			echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="./add_event.php">Add New Event</a>';
+
 		}
 		else {
 			header("location:../index.php");
