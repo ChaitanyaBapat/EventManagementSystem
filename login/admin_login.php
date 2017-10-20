@@ -30,6 +30,10 @@
 			exit();
 
 		}
+		if(isset($_SESSION['admin_login']) && $_SESSION['admin_login']) {
+			header("location:../events/index.php");
+			exit();
+		}
 	?>
 	
 	<div class="w3-row w3-highway-green" style="padding-top: 10px; padding-bottom: 10px; position: sticky;  top:0px;z-index:1000">
@@ -85,7 +89,7 @@
 		<div class="w3-col l10" style="position:realtive;z-index:100;">
 			<br><br>
 			<div class="w3-card w3-white w3-mobile" style="display: block;width: 40%; margin: 0 auto; padding: 30px;">
-				<form action="../auth/authenticate.php" method="POST">
+				<form action="../auth/authenticate_admin.php" method="POST">
 					<table class="w3-table w3-mobile">
 						<tr>
 							<td>Roll Number</td>

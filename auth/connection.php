@@ -9,9 +9,9 @@
 		$db_name = 'ems';
 		$connection_variable = new mysqli($db_servername,$db_username,$db_password,$db_name);
 		if($connection_variable->connect_error) {
-			$_SESSION['database_connection'] = 'error';
+			$_SESSION['database_connection'] = false; 
 		} else {
-			$_SESSION['database_connection'] = 'connected';
+			$_SESSION['database_connection'] = true;
 		}
 		return $connection_variable;
 	}

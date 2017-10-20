@@ -1,136 +1,168 @@
-<?php
-	if (!isset($_SESSION)) {
-		session_start();
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Event Management System</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- CSS File -->
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-	<!-- jQuery Script -->
+
+	<title>EMS HomePage</title>
+
+	<!-- Meta Information -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- W.CSS Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="css/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+
+	<!-- Script For jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- jQuery Functions for Side Navigation Bar -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".open-side-navigation-bar").click(function() {
-				$(".side-navigation-bar").css('width', '15%');
-				$(".rest-of-the-body").css('width', '85%');
-				$(".rest-of-the-body").css('margin-left', '17%');
-				$(".header").css('width','100%');
-				$(".close-side-navigation-bar").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});
-			$(".open-side-navigation-bar-mobile").click(function () {
-				$(".side-navigation-bar").css('width', '50%');
-				$(".rest-of-the-body").css('width', '50%');
-				$(".rest-of-the-body").css('overflow-x', 'hidden');
-				$(".rest-of-the-body").css('margin-left', '52%');
-				$(".header").css('width','100%');
-				$(".close-side-navigation-bar-mobile").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});
-			$(".close-side-navigation-bar").click(function() {
-				$(".side-navigation-bar").css('width', '0px');
-				$(".rest-of-the-body").css('width', '100%');
-				$(".rest-of-the-body").css('margin-left', '10px');
-				$(".header").css('width','100%');
-				$(".open-side-navigation-bar").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});	
-			$(".close-side-navigation-bar-mobile").click(function() {
-				$(".side-navigation-bar").css('width', '0px');
-				$(".rest-of-the-body").css('width', '100%');
-				$(".rest-of-the-body").css('margin-left', '10px');
-				$(".header").css('width','100%');
-				$(".open-side-navigation-bar-mobile").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});	
-		});
-	</script>
+
+		<!-- Internal CSS -->
+		<style type="text/css">
+			@media screen and (max-resolution:420dpi) and (max-device-width:720px) {
+				.myclass {
+					display: flex;
+				}
+			}
+		</style>
 </head>
-<body class="container"> 
-	<!-- Header-->		
-		<div class="header">
-			<!-- Open nav bar btn -->
-			<div class="header-hamburger">
-				<a href="#/" class="open-side-navigation-bar"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="open-side-navigation-bar-mobile"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<a href="#/" class="close-side-navigation-bar"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="close-side-navigation-bar-mobile"><img src="images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-			</div>
-			<!-- Website Title -->
-			<div class="header-website-title">
-				<a href="index.php" id="website">Event Management System</a>
-			</div>
-			<!-- Title Menu -->
-			<div class="title-menu-container">
-				<div class="title-menu">
-					<div class="title-menu-item"><a href="contact/contact.php" class="title-menu-item-a">Contact Us</a></div>
-					<?php
-						if (!isset($_SESSION)) {
-							session_start();
-						}
-						if (isset($_SESSION['login']) || isset($_SESSION['login_admin'])) {
-							echo '<div class="title-menu-item"><a href="logout/logout.php" class="title-menu-item-a">Logout</a></div>';
-						}
-						else {
-							echo '<div class="title-menu-item"><a href="login/login.php" class="title-menu-item-a">Login</a></div>';
-							echo '<div class="title-menu-item"><a href="register/register.php" class="title-menu-item-a">Register</a></div>';
-						}
-					?>
-				</div>
-			</div>
-		</div>
-	<!-- Side Navigation bar -->
-	<div class="side-navigation-bar"> 	
-		<div class="side-navigation-bar-content-top">
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Home</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">My Events</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Past Events</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">CSI</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">IEEE</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">ISTE</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Social Wing</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">ITSA</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">SUC</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Kalaraag</a>
+<body>
+	<!-- Header -->
+	<div class="w3-row w3-highway-green" style="padding-top: 10px; padding-bottom: 10px; position: sticky;  top:0px;z-index:1000">
+
+		<div class="w3-col l8 w3-container w3-highway-green" style="text-align: center;">
+			<a href="./index.php" style="text-decoration: none; font-size: 30px;">Event Management System</a>
 		</div>
 
-	</div>
-	<!-- Body Content -->
-	<div class="rest-of-the-body"> 
-		<!-- insert Body here --> 
+		<div class="w3-col l4 w3-row w3-highway-green w3-mobile myclass">
 
+			<?php
+
+				// PHP Script For echoing Login/Register buttons or Logout Button
+
+				session_start();
+
+				//If Admin is logged in, redirect to admin's homepage
+				// Here, the redirect address is set to events/index.php
+				//The script in that page redirects it to admin homepage (admin_homepage.php)
+
+				if ( isset ( $_SESSION['admin_login'] ) && $_SESSION['admin_login'] ) {
+
+					header ( "location:/EventManagementSystem/events/index.php" );
+					exit ();
+
+				}
+
+				//If User is logged in, echo Logout Button
+				//Else, echo Login and register buttons
+
+				if( isset ( $_SESSION['login'] ) && $_SESSION['login'] ) {
+
+					echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="logout/logout.php">Logout</a>';
+
+				}
+				else {
+
+					echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="login/login.php">Login</a>';
+					echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="register/register.php">Register</a>';
+
+				}
+			?>
+			<!-- Contact Us Button -->
+			<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="#/">Contact Us</a>
+		</div>
+	</div>				
+
+	<!-- Main Body Starts Here -->
+
+	<!-- Container For Body -->
+	<div class="w3-row w3-mobile">
+
+		<!-- Side Navigation Bar Starts Here -->
+		<div class="w3-col l2 w3-bar-block" style="height: 100%;">
+
+			<a href="#/" class="w3-bar-item w3-button">My Events</a>
+			<a href="#/" class="w3-bar-item w3-button">Past Events</a>
+			<a href="#/" class="w3-bar-item w3-button">Login</a>
+			<a href="#/" class="w3-bar-item w3-button">Register</a>
+			<a href="#/" class="w3-bar-item w3-button">Contact Us</a>
+
+		</div>
+		<!-- Side Navigation Bar Ends Here -->
+
+		<!-- Peg Content starts here -->
+		<div class="w3-col l10" style="z-index:100; border-left: 2px solid #AAAAAA;">
+			<br>
+		<?php
+			//PHP Script For Displaying Events
+
+			require 'auth/connection.php';
 		
+			$connection_variable = connect_to_the_database();
+			$sql = "SELECT * FROM EVENTS";
+			$result = $connection_variable->query($sql);
+			$count = 0;
+			if ( $result->num_rows > 0 ) {
+				
+				while( $row = $result->fetch_assoc () ) {
+					
+					//Declaration for w3-card is here
+					//div for w3-card is nested in an anchor tag (To make it clickbale)
 
+					//Leftmost Column
 
-	</div>
-</body>	
+					if($count % 3 == 0) {
+						echo '<div class="w3-row">';
+						echo '<a href="events/display_event_info.php?e_id='.$row['e_id'].'" style="text-decoration: none;"><div class="w3-card w3-mobile w3-white" style="border:1px solid #BBBBBB;min-width:250px;margin: 5px;width:30%; height: 400px; float:left; overflow:hidden; position: relative;">';
+					}
+
+					//Rightmost Column
+
+					elseif($count % 3 == 2) {
+						echo '<a href="events/display_event_info.php?e_id='.$row['e_id'].'" style="text-decoration: none;"><div class="w3-card w3-mobile w3-white" style="border:1px solid #BBBBBB;min-width:250px;margin: 5px;width:30%; height: 400px; float:left; overflow:hidden; position: relative;">';
+					}
+
+					//Middle Column
+
+					else {
+						echo '<a href="events/display_event_info.php?e_id='.$row['e_id'].'" style="text-decoration: none;"><div class="w3-card w3-mobile w3-white" style="border:1px solid #BBBBBB;min-width:250px;margin: 5px;width:30%; height: 400px; float:left; overflow:hidden; position: relative;">';
+					}
+
+					//Echo the name of the event
+
+					echo '<div class="w3-container w3-padding" style="font-size:18px;display:block;width:100%;text-align:center;"><span style="text-align:center;">'.$row['name'].'</span></div>';
+
+					//Echo the image
+
+					echo '<img class="w3-padding" style="width:100%;" src="images/'.$row['img_name'].'">';
+
+					if( isset( $_SESSION['login'] ) && $_SESSION['login'] && isset( $_SESSION['roll_number'] ) ) {
+
+						//If the user is logged in,
+						//1. The max-height limit for short description is enabled (So it doesn't take up the entire div)
+						//2. An interested button is added at the bottom
+						//3 This interested button is the submit button of the form which redirects to events/display_events.php with e_id
+
+						echo '<div class="w3-container" style="overflow:hidden; max-height:150px;">'.$row['short_desc'].'</div>';
+
+						echo '<form action="events/user_interested.php" method="POST">';
+
+						echo '<input type="hidden" name="e_id" value="'.$row['e_id'].'"></input>';
+						echo '<input type="hidden" name="roll_number" value="'.$_SESSION['roll_number'].'"></input>';
+
+						echo '<input class="w3-container w3-button w3-highway-blue" style="position: absolute; right:0; bottom:0; display:block; width:100%; font-size:18px; padding-top:8px;padding-bottom:8px; box shadow:5px 5px 5px solid #888888" type="submit" value="Interested ?"></input></form>';
+					}
+					else {
+
+						//If the user is not logged in,
+						//The max height limit is disabled, short description takes entire card height
+						//Interested button is not echoed
+
+						echo '<div class="w3-container" style="overflow:hidden;">'.$row['short_desc'].'</div>';
+					}
+					echo '</div></a>';
+					$count = $count + 1;
+				}
+			}
+		?>
+	</div></div></div>
+</body>
+</html>

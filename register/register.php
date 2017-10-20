@@ -1,220 +1,170 @@
-<?php
-	if (!isset($_SESSION)) {
-		session_start();
-	}
-?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Event Management System</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<!-- CSS File -->
-	<link rel="stylesheet" type="text/css" href="../css/styles.css">
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-	<!-- jQuery Script -->
+
+	<title>Event Manager HomePage</title>
+
+	<!-- Meta Information -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- W.CSS Stylesheet -->
+	<link rel="stylesheet" type="text/css" href="../css/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+	<!-- Script For jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!-- jQuery Functions for Side Navigation Bar -->
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$(".open-side-navigation-bar").click(function() {
-				$(".side-navigation-bar").css('width', '15%');
-				$(".rest-of-the-body").css('width', '85%');
-				$(".rest-of-the-body").css('margin-left', '17%');
-				$(".header").css('width','100%');
-				$(".close-side-navigation-bar").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});
-			$(".open-side-navigation-bar-mobile").click(function () {
-				$(".side-navigation-bar").css('width', '50%');
-				$(".rest-of-the-body").css('width', '50%');
-				$(".rest-of-the-body").css('overflow-x', 'hidden');
-				$(".rest-of-the-body").css('margin-left', '52%');
-				$(".header").css('width','100%');
-				$(".close-side-navigation-bar-mobile").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});
-			$(".close-side-navigation-bar").click(function() {
-				$(".side-navigation-bar").css('width', '0px');
-				$(".rest-of-the-body").css('width', '100%');
-				$(".rest-of-the-body").css('margin-left', '10px');
-				$(".header").css('width','100%');
-				$(".open-side-navigation-bar").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});	
-			$(".close-side-navigation-bar-mobile").click(function() {
-				$(".side-navigation-bar").css('width', '0px');
-				$(".rest-of-the-body").css('width', '100%');
-				$(".rest-of-the-body").css('margin-left', '10px');
-				$(".header").css('width','100%');
-				$(".open-side-navigation-bar-mobile").css('display', 'inline-block');
-				$(this).css('display', 'none');
-			});	
-		});
-	</script>
+		<style type="text/css">
+			@media screen and (max-resolution:420dpi) and (max-device-width:720px) {
+			.myclass {
+				display: flex;
+			}
+		}
+		</style>
 </head>
-<body class="container"> 
-	<!-- Header-->		
-		<div class="header">
-			<!-- Open nav bar btn -->
-			<div class="header-hamburger">
-				<a href="#/" class="open-side-navigation-bar"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="open-side-navigation-bar-mobile"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<a href="#/" class="close-side-navigation-bar"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-				<!-- Open Nav Bar Button for mobile Screens -->
-				<a href="#/" class="close-side-navigation-bar-mobile"><img src="../images/hamburger_white.png" class="header-hamburger-img" width="30px"></a>
-			</div>
-			<!-- Website Title -->
-			<div class="header-website-title">
-				<a href="../index.php" id="website">Event Management System</a>
-			</div>
-			<!-- Title Menu -->
-			<div class="title-menu-container">
-				<div class="title-menu">
-					<div class="title-menu-item"><a href="../contact/contact.php" class="title-menu-item-a">Contact Us</a></div>
-					<?php
-						if (!isset($_SESSION)) {
-							session_start();
-						}
-						if (isset($_SESSION['login']) || isset($_SESSION['login_admin'])) {
-							echo '<div class="title-menu-item"><a href="../logout/logout.php" class="title-menu-item-a">Logout</a></div>';
-						}
-						else {
-							echo '<div class="title-menu-item"><a href="../login/login.php" class="title-menu-item-a">Login</a></div>';
-							echo '<div class="title-menu-item"><a href="../register/register.php" class="title-menu-item-a">Register</a></div>';
-						}
-					?>
-				</div>
-			</div>
-		</div>
-	<!-- Side Navigation bar -->
-	<div class="side-navigation-bar"> 	
-		<div class="side-navigation-bar-content-top">
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Home</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">My Events</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Past Events</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">CSI</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">IEEE</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">ISTE</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Social Wing</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">ITSA</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">SUC</a>
-		</div>
-		<div class="side-navigation-bar-content">
-			<a href="#/" class="side-navigation-bar-content-a">Kalaraag</a>
+<body>
+
+	<div class="w3-row w3-highway-green" style="padding-top: 10px; padding-bottom: 10px; position: sticky;  top:0px;z-index:1000">
+
+		<div class="w3-col l8 w3-container w3-highway-green" style="text-align: center;">
+			<a href="#/" style="text-decoration: none; font-size: 30px;">Event Management System</a>
 		</div>
 
-	</div>
-	<!-- Body Content -->
-	<div class="rest-of-the-body"> 
-		<!-- insert Body here --> 
-		<?php
-			if (!isset($_SESSION)) {
-				session_start();
-			}
-			if(isset($_SESSION['login'])) {
-				echo 'Please log out of your existing account to register a new account.';
-			}
-			else {
-				echo '<div>
-				<form method="POST" action="../auth/new_user.php">
-					<!-- Table inside the form tag -->
-					<!-- This form contains the following info
-					* Roll No
-					* Password
-					*Confirm password
-					* First Name
-					* Middle Name
-					* Last Name
-					* Year (FE,SE,TE,BE)
-					* Division
-					* Batch
-					* Email
-					* Mobile Number -->
-					<table>
-						<tr>
-							<td>Username (Your Roll Number) : </td>
-							<td><input type="text" name="username" required></td>
-						</tr>
-						<tr>
-							<td>Password :<br> (Minimum 8 characters long)</td>
-							<td><input type="password" name="password" minlength="8" required></td>
-						</tr>
-						<tr>
-							<td>Confirm Password : </td>
-							<td><input type="password" name="confirm_password" minlength="8" required></td>
-						</tr>
-						<tr>
-							<td>First Name : </td>
-							<td><input type="text" name="first_name" required></td>
-						</tr>
-						<tr>
-							<td>Middle Name : </td>
-							<td><input type="text" name="middle_name" required></td>
-						</tr>
-						<tr>
-							<td>Last Name : </td>
-							<td><input type="text" name="last_name" required></td>
-						</tr>
-						<tr>
-							<td>Year  : </td>
-							<td>
-								<input type="radio" name="year" value="FE" required>First Year<br>
-								<input type="radio" name="year" value="SE" required>Second Year<br>
-								<input type="radio" name="year" value="TE" required>Third Year<br>
-								<input type="radio" name="year" value="BE" required>Fourth Year
-							</td>
-						</tr>
-						<tr>
-							<td>Division : </td>
-							<td><input type="text" name="division" required></td>
-						</tr>
-						<tr>
-							<td>Batch  : </td>
-							<td>
-								<input type="radio" name="batch" value="one" required>1<br>
-								<input type="radio" name="batch" value="two" required>2<br>
-								<input type="radio" name="batch" value="three" required>3
-							</td>
-						</tr>
-						<tr>
-							<td>Email : </td>
-							<td><input type="email" name="email" required></td>
-						</tr>
-						<tr>
-							<td>Mobile Number : </td>
-							<td><input type="text" name="mobile" required></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><input type="submit" name="submit" value="Login" required></td>
-						</tr>
-					</table>
-				</form>
-		
-			</div>';
-			}
-		?>
+		<div class="w3-col l4 w3-row w3-highway-green w3-mobile myclass">
 
+	<?php
+
+		// PHP Script For echoing Login/Register buttons or Logout Button
+
+		session_start();
+
+		//If Admin is logged in, redirect to admin's homepage
+		// Here, the redirect address is set to events/index.php
+		//The script in that page redirects it to admin homepage (admin_homepage.php)
+
+		if ( isset ( $_SESSION['admin_login'] ) && $_SESSION['admin_login'] ) {
+
+			header ( "location:../events/index.php" );
+			exit ();
+
+		}
+
+		//If User is logged in, echo Logout Button
+		//Else, echo Login and register buttons
+		if( isset ( $_SESSION['login'] ) && $_SESSION['login'] ) {
+			//change dis sjhit
+			echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="logout/logout.php">Logout</a>';
+
+		}
+		else {
+
+			echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="login/login.php">Login</a>';
+			echo '<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="register/register.php">Register</a>';
+
+		}
+	?>
+			<a class="w3-mobile w3-btn w3-hover-white w3-round-large w3-border-highway-green" style="float:left;font-size: 16px;" href="#/">Contact Us</a>
+		</div>
+	</div>				
+
+	<!-- Main Body Starts Here -->
+	<div class="w3-row w3-mobile">
+		<div class="w3-col l2 w3-bar-block" style="position: sticky; top: 70px;">
+			<a href="#/" class="w3-bar-item w3-button">My Events</a>
+			<a href="#/" class="w3-bar-item w3-button">Past Events</a>
+			<a href="#/" class="w3-bar-item w3-button">Login</a>
+			<a href="#/" class="w3-bar-item w3-button">Register</a>
+			<a href="#/" class="w3-bar-item w3-button">Contact Us</a>
+		</div>
+		<div class="w3-col l10" style="z-index:100;">
+			<?php
+				if (!isset($_SESSION)) {
+					session_start();
+				}
+				if(isset($_SESSION['login'])) {
+					echo 'Please log out of your existing account to register a new account.';
+				}
+				else {
+					echo '<div class="w3-container w3-card">
+					<form method="POST" action="../auth/register_new_user.php">
+						<!-- Table inside the form tag -->
+						<!-- This form contains the following info
+						* Roll No
+						* Password
+						*Confirm password
+						* First Name
+						* Middle Name
+						* Last Name
+						* Year (FE,SE,TE,BE)
+						* Division
+						* Batch
+						* Email
+						* Mobile Number -->
+						<table class="w3-table w3-border">
+							<tr>
+								<td>Username (Your Roll Number) : </td>
+								<td><input class="w3-input" type="text" name="roll_number" required></td>
+							</tr>
+							<tr>
+								<td>Password :<br> (Minimum 8 characters long)</td>
+								<td><input class="w3-input" type="password" name="password" minlength="8" required></td>
+							</tr>
+							<tr>
+								<td>Confirm Password : </td>
+								<td><input class="w3-input" type="password" name="confirm_password" minlength="8" required></td>
+							</tr>
+							<tr>
+								<td>First Name : </td>
+								<td><input class="w3-input" type="text" name="first_name" required></td>
+							</tr>
+							<tr>
+								<td>Middle Name : </td>
+								<td><input class="w3-input" type="text" name="middle_name" required></td>
+							</tr>
+							<tr>
+								<td>Last Name : </td>
+								<td><input class="w3-input" type="text" name="last_name" required></td>
+							</tr>
+							<tr>
+								<td>Year  : </td>
+								<td>
+									<input class="w3-radio" type="radio" name="year" value="FE" required>First Year<br>
+									<input class="w3-radio" type="radio" name="year" value="SE" required>Second Year<br>
+									<input class="w3-radio" type="radio" name="year" value="TE" required>Third Year<br>
+									<input class="w3-radio" type="radio" name="year" value="BE" required>Fourth Year<br>
+								</td>
+							</tr>
+							<tr>
+								<td>Division : </td>
+								<td><input class="w3-input" type="text" name="division" required></td>
+							</tr>
+							<tr>
+								<td>Batch  : </td>
+								<td>
+									<input class="w3-radio" type="radio" name="batch" value="1" required>1<br>
+									<input class="w3-radio" type="radio" name="batch" value="2" required>2<br>
+									<input class="w3-radio" type="radio" name="batch" value="3" required>3<br>
+								</td>
+							</tr>
+							<tr>
+								<td>Email : </td>
+								<td><input class="w3-input" type="email" name="email" required></td>
+							</tr>
+							<tr>
+								<td>Mobile Number : </td>
+								<td><input class="w3-input" type="text" name="mobile" required></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><input class="w3-button w3-blue" style="padding:10px;font-size:22px;" type="submit" name="submit" value="Register" required></td>
+							</tr>
+						</table>
+					</form>
+
+				</div>';
+				}
+			?>
+		</div>
 	</div>
-</body>	
+
+</body>
+</html>

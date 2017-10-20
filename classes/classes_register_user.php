@@ -1,13 +1,6 @@
 <?php
-	if (!isset($_SESSION)) {
-		session_start();
-		if(!isset($_SESSION['login'])) {
-			header("location:../index.php");
-			exit();
-		} 
-	}
-	class user {
-		var $username;
+	class RegisterUser {
+		var $roll_number;
 		var $password;
 		var $first_name;
 		var $middle_name;
@@ -19,11 +12,11 @@
 		var $mobile;
 		var $connection_variable;
 		var $error_string;
-		function __construct ($username, $password, $first_name, $middle_name, $last_name, $year, $division, $batch, $email, $mobile, $connection_variable ) {
+		function __construct ($roll_number, $password, $first_name, $middle_name, $last_name, $year, $division, $batch, $email, $mobile, $connection_variable ) {
 
 			$this->connection_variable = $connection_variable;
-			$this->username = ($this->sanitize_regular($username));
-			$this->password = md5($this->sanitize_regular($password));
+			$this->roll_number = ($this->sanitize_regular($roll_number));
+			$this->password = ($this->sanitize_regular($password));
 			$this->first_name = $this->sanitize_regular($first_name);
 			$this->middle_name = $this->sanitize_regular($middle_name);
 			$this->last_name = $this->sanitize_regular($last_name);
@@ -45,8 +38,8 @@
 
 		public function check_requirements () {
 			if($this->check_empty()) return 1;
-			if(strlen($this->username) !== 8) return 2;
-			if(!$this->check_alphanumeric($this->username)) return 3;
+			if(strlen($this->roll_number) !== 8) return 2;
+			if(!$this->check_alphanumeric($this->roll_number)) return 3;
 			if(strlen($this->password) < 8) return 4;
 			if(!$this->check_alphabets($this->first_name)) return 5;
 			if(!$this->check_alphabets($this->middle_name)) return 6;
@@ -58,8 +51,8 @@
 		}
 
 		private function check_empty() {
-			if(empty($this->username)) {
-				$this->error_string = "username field cannot be left empty";
+			if(empty($this->roll_number)) {
+				$this->error_string = "roll number field cannot be left empty";
 				return True;
 			}
 			if(empty($this->password)) {
@@ -128,12 +121,13 @@
 		}
 
 		public function insert_user_into_database () {
-			$select = "SELECT ROLL_NO FROM USER WHERE ROLL_NO = '$this->username'";
+			$select = "SELECT ROLL_NO FROM USER WHERE ROLL_NO = '$this->roll_number'";
 			$result = $this->connection_variable->query($select);
 			if($result->num_rows > 0) {
 				return "Sorry, this account already exists";
 			} else {
-				$insert = "INSERT INTO USER VALUES ('$this->username','$this->password','$this->first_name','$this->middle_name','$this->last_name','$this->year','$this->division','$this->batch','$this->email','$this->mobile')";
+				$this->password = md5($this->password);
+				$insert = "INSERT INTO USER VALUES ('$this->roll_number','$this->password','$this->first_name','$this->middle_name','$this->last_name','$this->year','$this->division','$this->batch','$this->email','$this->mobile')";
 				if($result = $this->connection_variable->query($insert)) {
 					return "Account successfully created";
 				} else {
