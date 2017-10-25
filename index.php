@@ -86,6 +86,7 @@
 			<a href="#/" class="w3-bar-item w3-button">Contact Us</a>
 
 		</div> -->
+
 		<!-- Side Navigation Bar Ends Here -->
 		<center>
 		<!-- Page Content starts here -->
@@ -108,9 +109,7 @@
 						//Declaration for w3-card is here
 						//div for w3-card is nested in an anchor tag (To make it clickbale)
 
-		
-							// echo '<div class="w3-row">';
-						echo '<div class="w3-mobile w3-white w3-quarter"min-width:400px; height: 400px;overflow:hidden;position:relative;"><div class="w3-card" style="margin:20px; height:400px;"><a href="events/display_event_info.php?e_id='.$row['e_id'].'" style="text-decoration: none;">';
+						echo '<div class="w3-mobile w3-white w3-quarter"min-width:400px; height: 400px;overflow:hidden;position:relative;"><div class="w3-card" style="margin:20px; height:400px;position:relative;"><a href="events/display_event_info.php?e_id='.$row['e_id'].'" style="text-decoration: none;">';
 
 						//Echo the name of the event
 
@@ -134,7 +133,7 @@
 							echo '<input type="hidden" name="e_id" value="'.$row['e_id'].'"></input>';
 							echo '<input type="hidden" name="roll_number" value="'.$_SESSION['roll_number'].'"></input>';
 
-							echo '<input class="w3-container w3-button w3-highway-blue" style="position: absolute; right:0; bottom:0; display:block; width:100%; font-size:18px; padding-top:8px;padding-bottom:8px; box shadow:5px 5px 5px solid #888888" type="submit" value="Interested ?"></input></form></a></div>';
+							echo '<input class="w3-container w3-button w3-highway-blue" style="position:absolute; right:0; bottom:0; display:block; width:100%; font-size:18px; padding-top:8px;padding-bottom:8px; box shadow:5px 5px 5px solid #888888" type="submit" value="Interested ?"></input></form></a></div>';
 						}
 						else {
 
