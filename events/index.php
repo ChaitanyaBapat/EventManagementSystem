@@ -5,10 +5,10 @@
 		exit();
 	}
 	if(isset($_SESSION['admin_login']) && $_SESSION['admin_login']) {
-		header("location:./admin_homepage.php");
+		header("location:admin_homepage.php");
 		exit();
 	} else {
-		header("location:./index.php");
+		header("location:../index.php");
 		exit();
 	}
 

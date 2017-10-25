@@ -5,10 +5,6 @@
 		header("location:../index.php");
 		exit();
 	}
-	if (isset($_SESSION['admin_login']) && !$_SESSION['admin_login']) {
-		header("location:../login/admin_login.php");
-		exit();
-	}
 
 ?>
 
@@ -49,17 +45,6 @@
 
             // PHP Script For echoing Login/Register buttons or Logout Button
 
-            //If Admin is logged in, redirect to admin's homepage
-            // Here, the redirect address is set to events/index.php
-            //The script in that page redirects it to admin homepage (admin_homepage.php)
-
-            if ( !isset ( $_SESSION['admin_login'] ) || !$_SESSION['admin_login'] ) {
-
-                header ( "location:../login/admin_login.php" );
-                exit ();
-
-            }
-
             //If User is logged in, echo Logout Button
             //Else, echo Login and register buttons
             if( isset ( $_SESSION['login'] ) && $_SESSION['login'] ) {
@@ -85,8 +70,8 @@
 
 
 
-
-	<div class="w3-container w3-mobile">
+    <center>
+	<div class="w3-container w3-mobile" style="width: 70%;">
 
 		<form action="../auth/insert_new_event.php" method="post" class="w3-input" enctype="multipart/form-data" >
         <div style="padding:10px; align-content:center" class="border">
@@ -116,6 +101,6 @@
         </div>
     </form>
 
-	</div>
+	</div></center>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>Event Manager HomePage</title>
+	<title>EMS HomePage</title>
 
 	<!-- Meta Information -->
 	<meta charset="UTF-8">
@@ -10,15 +10,18 @@
 
 	<!-- W.CSS Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="../css/w3.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-highway.css">
+	<link rel="stylesheet" href="../css/w3-colors-highway.css">
+
 	<!-- Script For jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Internal CSS -->
 		<style type="text/css">
 			@media screen and (max-resolution:420dpi) and (max-device-width:720px) {
-			.myclass {
-				display: flex;
+				.myclass {
+					display: flex;
+				}
 			}
-		}
 		</style>
 </head>
 <body>
@@ -26,7 +29,7 @@
 	<div class="w3-row w3-highway-green" style="padding-top: 10px; padding-bottom: 10px; position: sticky;  top:0px;z-index:1000">
 
 		<div class="w3-col l8 w3-container w3-highway-green" style="text-align: center;">
-			<a href="#/" style="text-decoration: none; font-size: 30px;">Event Management System</a>
+			<a href="../index.php" style="text-decoration: none; font-size: 30px;">Event Management System</a>
 		</div>
 
 		<div class="w3-col l4 w3-row w3-highway-green w3-mobile myclass">
@@ -66,16 +69,17 @@
 	</div>				
 
 	<!-- Main Body Starts Here -->
-	<div class="w3-row w3-mobile">
-		<div class="w3-col l2 w3-bar-block" style=" z-index:10;">
+	<div class="w3-mobile">
+		<!-- <div class="w3-col l2 w3-bar-block" style=" z-index:10;">
 			<a href="#/" class="w3-bar-item w3-button">My Events</a>
 			<a href="#/" class="w3-bar-item w3-button">Past Events</a>
 			<a href="#/" class="w3-bar-item w3-button">Login</a>
 			<a href="#/" class="w3-bar-item w3-button">Register</a>
 			<a href="#/" class="w3-bar-item w3-button">Contact Us</a>
-		</div>
-		<div class="w3-col l10" style="z-index:100;">
+		</div> -->
+		<div class="w3-container" style="z-index:100;">
 			<br><br>
+			<center>
 			<?php
 
 				if($_SERVER['REQUEST_METHOD'] === "GET") {
@@ -86,7 +90,7 @@
 					$result = $connection_variable->query($sql);
 					if($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
-							echo '<div class="w3-card w3-mobile" style="width:80%;">';
+							echo '<div class="w3-card w3-mobile" style="width:70%;">';
 
 							echo '<div class="w3-container w3-blue">';
 
@@ -152,7 +156,7 @@
 								echo '<input type="hidden" name="e_id" value="'.$row['e_id'].'"></input>';
 								echo '<input type="hidden" name="roll_number" value="'.$_SESSION['roll_number'].'"></input>';
 
-								echo '<input class="w3-container w3-button w3-green" style="font-size:18px; padding-top:4px;padding-bottom:4px;" type="submit" value="Interested"></input></tr></td></form>';
+								echo '<input class="w3-container w3-button w3-green" style="font-size:18px; padding-top:4px;padding-bottom:4px;" type="submit" value="Interested ?"></input></tr></td></form>';
 
 							}
 							if( isset( $_SESSION['admin_login'] ) && $_SESSION['admin_login'] ) {
@@ -179,6 +183,7 @@
 				}
 
 			?>
+		</center>
 		</div>
 	</div>
 
