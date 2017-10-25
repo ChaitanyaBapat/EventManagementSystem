@@ -1,13 +1,3 @@
-<?php
-
-	session_start();
-	if(isset($_SESSION['login']) && $_SESSION['login']) {
-		header("location:../index.php");
-		exit();
-	}
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +22,18 @@
         </style>
 </head>
 <body>
+    <?php
+
+        session_start();
+        if(isset($_SESSION['admin_login']) && $_SESSION['admin_login']) {
+
+        }
+        else {
+            header("location:../index.php");
+            exit();
+        }
+
+    ?>
 
     <div class="w3-row w3-highway-green" style="padding-top: 10px; padding-bottom: 10px; position: sticky;  top:0px;z-index:1000">
 

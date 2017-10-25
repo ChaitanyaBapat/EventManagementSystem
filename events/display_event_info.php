@@ -85,11 +85,17 @@
 				if($_SERVER['REQUEST_METHOD'] === "GET") {
 					require '../auth/connection.php';
 					$connection_variable = connect_to_the_database();
+					if(!isset($_GET['e_id'])) {
+						header("location:../index.php");
+						exit();
+					}
 					$e_id = trim(mysqli_real_escape_string($connection_variable,$_GET['e_id']));
 					$sql = "SELECT * FROM EVENTS WHERE e_id = $e_id";
 					$result = $connection_variable->query($sql);
 					if($result->num_rows > 0) {
 						while($row = $result->fetch_assoc()) {
+							$views = $row['views'];
+							$views = $views + 1;
 							echo '<div class="w3-card w3-mobile" style="width:70%;">';
 
 							echo '<div class="w3-container w3-blue">';
@@ -179,6 +185,9 @@
 
 							echo '</div>';
 						}
+						$insert = "UPDATE EVENTS SET views = $views WHERE e_id = $e_id";
+						$insert_result = $connection_variable->query($insert);
+
 					}
 				}
 

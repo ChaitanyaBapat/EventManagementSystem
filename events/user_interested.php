@@ -8,6 +8,10 @@
 		require '../auth/connection.php';
 		$roll_number = 0;
 		$connection_variable = connect_to_the_database();
+		if(!isset($_POST['roll_number'])) {
+			header("location:../index.php");
+			exit();
+		}
 		$roll_number = trim(mysqli_real_escape_string($connection_variable, $_POST['roll_number']));
 		$sql = "SELECT * FROM USER WHERE ROLL_NO = '$roll_number'";
 		$result = $connection_variable->query($sql);
@@ -15,9 +19,6 @@
 			$e_id = trim(mysqli_real_escape_string($connection_variable, $_POST['e_id']));
 			$file_name = $e_id.".json";
 			$row = $result->fetch_assoc();
-			foreach ($row as $key => $value) {
-				echo $key."--->".$value."<br>";
-			}
 			$json_object = new StdClass();
 			$json_object->e_id = $e_id;
 			$roll_numbers = array($roll_number);
