@@ -95,9 +95,18 @@
 								$col = 0;
 								$row = 1;
 								$objPHPExcel->setActiveSheetIndex(0);
-								for($i = 0; $i < count($json_object->interested); $i++ ) {
-									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, $json_object->interested[$i]);
+								for($i = 0; $i < count($json_object->roll_numbers); $i++ ) {
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->roll_numbers[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->first_names[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->middle_names[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->last_names[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->years[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->divisions[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->batches[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->emails[$i]);
+									$objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($col++, $row, $json_object->mobiles[$i]);
 									$row++;
+									$col = 0;
 								}
 								$objPHPExcel->getActiveSheet()->setTitle($e_id);
 								$objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
