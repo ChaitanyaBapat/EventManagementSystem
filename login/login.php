@@ -49,7 +49,7 @@
 	<div class="w3-row w3-highway-green" style="padding-top: 10px; padding-bottom: 10px; position: sticky;  top:0px;z-index:1000">
 
 		<div class="w3-col l8 w3-container w3-highway-green" style="text-align: center;">
-			<a href="#/" style="text-decoration: none; font-size: 30px;">Event Management System</a>
+			<a href="../index.php" style="text-decoration: none; font-size: 30px;">Event Management System</a>
 		</div>
 
 		<div class="w3-col l4 w3-row w3-highway-green w3-mobile myclass">
