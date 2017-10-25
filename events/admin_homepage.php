@@ -95,7 +95,7 @@
 						//Declaration for w3-card is here
 						//div for w3-card is nested in an anchor tag (To make it clickbale)
 
-						echo '<div class="w3-mobile w3-white w3-quarter"min-width:400px; height: 400px;overflow:hidden;position:relative;"><div class="w3-card" style="margin:20px; height:400px;position:relative;"><a href="events/display_event_info.php?e_id='.$row['e_id'].'" style="text-decoration: none;">';
+						echo '<div class="w3-mobile w3-white w3-quarter"min-width:400px; height: 400px;overflow:hidden;position:relative;"><div class="w3-card" style="margin:20px; height:400px;position:relative;"><a href="../events/display_event_info.php?e_id='.$row['e_id'].'" style="text-decoration: none;">';
 
 						//Echo the name of the event
 
