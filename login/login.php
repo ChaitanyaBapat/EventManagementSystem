@@ -79,9 +79,13 @@
 			<div class="w3-card w3-white w3-mobile" style="display: block;width: 40%; margin: 0 auto; padding: 30px;">
 				<form action="../auth/authenticate.php" method="POST">
 					<table class="w3-table w3-mobile">
-						<tr>
-							<td colspan="2" style="display: none;" class="w3-panel w3-red">Incorrect Username or Password</td>
-						</tr>
+						<?php
+							if(isset($_SESSION['login']) && !$_SESSION['login']) {
+								echo '<tr><td colspan="2" class="w3-panel w3-red">Incorrect Username or Password</td></tr>';
+							} else {
+								echo '<tr><td colspan="2" style="display: none;" class="w3-panel w3-red">Incorrect Username or Password</td></tr>';
+							}
+						?>
 						<tr>
 							<td>Roll Number</td>
 							<td><input style="border: 1px solid #8BC34A; border-radius: 5px;outline: none;" class="w3-input" type="text" name="roll_number" required></td>
