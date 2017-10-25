@@ -30,11 +30,21 @@
 					switch($result_var) {
 						case 0:
 							$result_var_2 = $my_user->insert_user_into_database();
-							echo $result_var_2;
-							$_SESSION['login'] = true;
-							$_SESSION['roll_number'] = $my_user->roll_number;
-							header("location:../index.php");
-							break;
+							if($result_var_2 === 1) {
+								$_SESSION['login'] = true;
+								$_SESSION['roll_number'] = $my_user->roll_number;
+								header("location:../index.php");
+								break;
+							}
+							else {
+								$_SESSION['login'] = false;
+								if($result_var_2 === 0) {
+									echo 'Sorry, this account already exists';
+								} else {
+									echo 'There seems to be a problem, try again';
+								}
+								break;
+							}
 						case 1:
 							echo $my_user->error_string;
 							echo "<br>";
@@ -67,6 +77,9 @@
 						case 10:
 							echo "Invalid E-mail adress.<br>Account registration has failed, try again.";
 							break;
+						case 100:
+						echo 'Sorry, this account already exists';
+							break;	
 					}
 				}
 				else {

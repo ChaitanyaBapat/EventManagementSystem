@@ -38,16 +38,18 @@
 
 		public function check_requirements () {
 			if($this->check_empty()) return 1;
-			if(strlen($this->roll_number) !== 8) return 2;
-			if(!$this->check_alphanumeric($this->roll_number)) return 3;
-			if(strlen($this->password) < 8) return 4;
-			if(!$this->check_alphabets($this->first_name)) return 5;
-			if(!$this->check_alphabets($this->middle_name)) return 6;
-			if(!$this->check_alphabets($this->last_name)) return 7;
-			if(!$this->check_alphabets($this->year)) return 8;
-			if(!$this->check_alphabets($this->division)) return 9;
-			if(!$this->check_email($this->email)) return 10;
-			return 0;
+			elseif(strlen($this->roll_number) !== 8) return 2;
+			elseif(!$this->check_alphanumeric($this->roll_number)) return 3;
+			elseif(strlen($this->password) < 8) return 4;
+			elseif(!$this->check_alphabets($this->first_name)) return 5;
+			elseif(!$this->check_alphabets($this->middle_name)) return 6;
+			elseif(!$this->check_alphabets($this->last_name)) return 7;
+			elseif(!$this->check_alphabets($this->year)) return 8;
+			elseif(!$this->check_alphabets($this->division)) return 9;
+			elseif(!$this->check_email($this->email)) return 10;
+			elseif(!$this->check_user()) return 0;
+			else return 100;
+
 		}
 
 		private function check_empty() {
@@ -120,19 +122,29 @@
 	    	}
 		}
 
+		private function check_user () {
+			$select = "SELECT ROLL_NO FROM USER WHERE ROLL_NO = '$this->roll_number'";
+			$result = $this->connection_variable->query($select);
+			if($result->num_rows > 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
 		public function insert_user_into_database () {
 			$select = "SELECT ROLL_NO FROM USER WHERE ROLL_NO = '$this->roll_number'";
 			$result = $this->connection_variable->query($select);
 			if($result->num_rows > 0) {
-				return "Sorry, this account already exists";
+				return 0;
 			} else {
 				$this->password = md5($this->password);
 				$insert = "INSERT INTO USER VALUES ('$this->roll_number','$this->password','$this->first_name','$this->middle_name','$this->last_name','$this->year','$this->division','$this->batch','$this->email','$this->mobile')";
 				if($result = $this->connection_variable->query($insert)) {
-					return "Account successfully created";
+					return 1;
 				} else {
 					echo $this->connection_variable->error;
-					return "Sorry, there seems to be a problem";;
+					return 2;;
 				}
 
 			}
