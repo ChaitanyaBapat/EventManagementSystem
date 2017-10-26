@@ -20,7 +20,7 @@
 
 		//connection.php has a function connect_to_the_database to generate a connection variable
 
-		include './connection.php';
+		include 'connection.php';
 		$connection_variable = connect_to_the_database();
 
 		//If the database connection is successful,

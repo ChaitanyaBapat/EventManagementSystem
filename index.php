@@ -46,7 +46,7 @@
 
 				if ( isset ( $_SESSION['admin_login'] ) && $_SESSION['admin_login'] ) {
 
-					header ( "location:/EventManagementSystem/events/index.php" );
+					header ( "location:events/index.php" );
 					exit ();
 
 				}
